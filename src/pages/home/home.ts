@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 import { RegisterPage } from '../register/register';
 import { LoginPage } from '../login/login';
 import { CategoriesPage } from '../categories/categories';
+import { DatabaseProvider } from '../../providers/database/database';
 
 @Component({
   selector: 'page-home',
@@ -10,7 +11,7 @@ import { CategoriesPage } from '../categories/categories';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController,public db:DatabaseProvider) {
 
   }
 

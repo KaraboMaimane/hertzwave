@@ -20,6 +20,7 @@ export class MyApp {
       storageBucket: "hertzwave-1ce74.appspot.com",
       messagingSenderId: "622484760811"
     })
+    
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
