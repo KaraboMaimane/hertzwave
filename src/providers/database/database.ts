@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-// import firebase from 'firebase';
+import firebase from 'firebase';
 /*
   Generated class for the DatabaseProvider provider.
 
