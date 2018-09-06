@@ -17,6 +17,13 @@ import { NgForm } from '@angular/forms';
 })
 export class RegisterPage {
 
+  name;
+  surname;
+  location;
+  password;
+  email;
+  phone;
+
   constructor(public navCtrl: NavController, public navParams: NavParams,public db:DatabaseProvider) {
   }
 
@@ -26,5 +33,16 @@ export class RegisterPage {
   }
   register(form: NgForm){
     console.log(form.value);
+
+    this.name=form.value.name;
+    this.surname=form.value.surname;
+    this.location=form.value.location;
+    this.password=form.value.password;
+    this.email=form.value.email;
+    this.phone=form.value.phone;
+
+    
+    this.db.registerUser(this.name,this.surname,this.email,this.password,this.location,this.phone);
+    
   }
 }
