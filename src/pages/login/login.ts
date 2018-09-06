@@ -27,6 +27,8 @@ export class LoginPage {
   }
 
 
+
+
   myMethod(){
     if(this.email == undefined, this.password == undefined){
       const prompt = this.alertCtrl.create({
@@ -81,4 +83,5 @@ export class LoginPage {
       // this.navCtrl.push(CategoriesPage);
     }
   }
+
 }

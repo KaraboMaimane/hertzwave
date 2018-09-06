@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { DatabaseProvider } from '../../providers/database/database';
-
+import { NgForm } from '@angular/forms';
 
 /**
  * Generated class for the RegisterPage page.
@@ -24,6 +24,7 @@ export class RegisterPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegisterPage');
   }
-
-  
+  register(form: NgForm){
+    console.log(form.value);
+  }
 }
