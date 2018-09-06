@@ -17,5 +17,25 @@ export class DatabaseProvider {
   }
 
  
+  registerUser(username,email,password)
+  {
+
+        firebase.auth().createUserWithEmailAndPassword(email, password).then(()=>{
+            
+          var userID = firebase.auth().currentUser.uid;
+
+          if(userID!=null)
+          {
+            firebase.database().ref('Registration/' +userID).set({
+    
+              username:username,
+              email:email,
+              password:password
+        
+            });
+          }
+
+        });
+  }
 
 }
