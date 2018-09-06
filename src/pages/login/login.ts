@@ -25,7 +25,5 @@ export class LoginPage {
   }
 
 
-  myMethod(){
-    
-  }
+
 }
