@@ -1,0 +1,43 @@
+page-categories {
+    ion-content{
+        background: $color-dark !important;
+    }
+    .buttonblock{
+        width: 100vw;
+        margin: 0 auto;
+        &__buttoncontainer{
+            overflow-x: scroll;
+            margin: 0  auto !important;
+            padding: 0 !important;
+            display: flex;
+            flex-flow: row;
+            justify-content: center;
+            &__button{
+                background: linear-gradient(rgba($color-primary-dark, .9), rgba($color-primary-light, .9));
+                color: white;
+                padding: 1rem;
+                margin: .5rem;
+                font-weight: 300;
+                font-size: 2rem;
+                border-radius: 2rem;
+                &:nth-child(even){
+                    background: linear-gradient(rgba($color-primary-dark, .9), rgba($color-primary-dark, .9))
+                }
+            }
+        }
+    }
+
+    .card-heading{
+        color: $color-primary-light;
+    }
+
+    ion-item{
+        background: transparent !important;
+    }
+
+    .list{
+        overflow: scroll !important;
+        height: 95vh;
+    }
+    
+}
