@@ -19,10 +19,11 @@ export class RegisterPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public db:DatabaseProvider) {
   }
-  
+
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegisterPage');
   }
 
+  
 }

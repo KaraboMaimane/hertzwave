@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import firebase from 'firebase';
+
+
+declare var firebase;
 /*
   Generated class for the DatabaseProvider provider.
 
@@ -14,9 +16,6 @@ export class DatabaseProvider {
     console.log('Hello DatabaseProvider Provider');
   }
 
-  register()
-  {
-    
-  }
+ 
 
 }
