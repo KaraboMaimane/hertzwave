@@ -12,7 +12,7 @@ import { DatabaseProvider } from '../../providers/database/database';
 export class HomePage {
 
   constructor(public navCtrl: NavController,public db:DatabaseProvider) {
-
+    console.log(this.db.getPlace());
   }
 
   Register(){
