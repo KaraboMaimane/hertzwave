@@ -14,6 +14,11 @@
           <ion-label><ion-icon name="lock"></ion-icon></ion-label>
           <ion-input ngModel name="password" type="password" placeholder="password"></ion-input>
       </ion-item>
+
+      <button class="btn" ion-button full round (click)="loginMethod()">Log in</button>
+  </div>
+
       <button class="btn" ion-button full round [disabled]="!f.valid">Log in</button>
     </form>
+
 </ion-content>

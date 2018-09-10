@@ -10,7 +10,11 @@ import { CategoriesPage } from '../pages/categories/categories';
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
 import { DatabaseProvider } from '../providers/database/database';
+
+
+
 import { HttpClientModule } from '../../node_modules/@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -22,8 +26,11 @@ import { HttpClientModule } from '../../node_modules/@angular/common/http';
   ],
   imports: [
     BrowserModule,
+
+    IonicModule.forRoot(MyApp),
     HttpClientModule,
     IonicModule.forRoot(MyApp)
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [
