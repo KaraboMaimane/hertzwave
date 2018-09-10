@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { DatabaseProvider } from '../../providers/database/database';
 import { NgForm } from '@angular/forms';
+import firebase from 'firebase';
 
 /**
  * Generated class for the RegisterPage page.
@@ -43,7 +44,27 @@ export class RegisterPage {
     this.phone=form.value.phone;
 
     
-    this.db.registerUser(this.name,this.surname,this.email,this.password,this.location,this.phone);
+    this.db.registerUser(this.email,this.password).then(data =>{
+
+      var userID = firebase.auth().currentUser.uid;
+
+      if(userID!=null)
+      {
+        firebase.database().ref('Registration/' +userID).set({
+
+          name:this.name,
+          surname:this.surname,
+          location:this.location,
+          phone:this.phone,
+          email:this.email,
+          password:this.password
+    
+        });
+      }
+
+
+    });
+    ;
     
   }
 }

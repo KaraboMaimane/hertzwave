@@ -18,33 +18,12 @@ export class DatabaseProvider {
   }
 
  
-  registerUser(name,surname,email,password,location,phone)
+  registerUser(email,password)
   {
-
-        firebase.auth().createUserWithEmailAndPassword(email, password).then(()=>{
-            
-          var userID = firebase.auth().currentUser.uid;
-
-          if(userID!=null)
-          {
-            firebase.database().ref('Registration/' +userID).set({
-    
-              name:name,
-              surname:surname,
-              location:location,
-              phone:phone,
-              email:email,
-              password:password
-        
-            });
-          }
-
-        });
+    return firebase.auth().createUserWithEmailAndPassword(email,password); 
+      
   }
 
-  registration(email, password){
-    return firebase.auth().createUserWithEmailAndPassword(email, password);
-  }
 
   login(email:string, password: string){
     return firebase.auth().signInWithEmailAndPassword(email, password);
