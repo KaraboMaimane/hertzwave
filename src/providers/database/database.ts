@@ -42,7 +42,7 @@ export class DatabaseProvider {
           {
             firebase.database().ref('Registration/' +userID).set({
     
-              name:name,
+            
               surname:surname,
               location:location,
               phone:phone,
