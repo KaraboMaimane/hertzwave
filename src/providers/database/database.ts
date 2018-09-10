@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-
 import firebase from 'firebase';
 /*
   Generated class for the DatabaseProvider provider.
@@ -19,7 +18,7 @@ export class DatabaseProvider {
   }
 
  
-  registerUser(username,email,password)
+  registerUser(name,surname,email,password,location,phone)
   {
 
         firebase.auth().createUserWithEmailAndPassword(email, password).then(()=>{
@@ -30,7 +29,10 @@ export class DatabaseProvider {
           {
             firebase.database().ref('Registration/' +userID).set({
     
-              username:username,
+              name:name,
+              surname:surname,
+              location:location,
+              phone:phone,
               email:email,
               password:password
         
