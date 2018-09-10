@@ -18,6 +18,7 @@
   giving the form a template variable of f-->
   <form #f="ngForm" (ngSubmit)="register(f)">
     <div class="back">
+
       <ion-item class="ion-item">
         <ion-label color="light">
           <ion-icon name="contact"></ion-icon>
@@ -61,7 +62,7 @@
         <ion-label color="light">
             <ion-icon name="call"></ion-icon>
         </ion-label>
-        <ion-input type="phone" placeholder="phone" name="phone" ngModel required></ion-input>
+        <ion-input type="number" placeholder="phone" name="phone" ngModel required></ion-input>
       </ion-item>
       <!-- creating the submission button for the form 
       -[disabled]="!f.valid" will make the button not work unless valid data is entered
@@ -71,3 +72,4 @@
   </form>
 
 </ion-content>
+
