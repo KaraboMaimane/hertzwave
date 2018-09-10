@@ -32,7 +32,7 @@ export class RegisterPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegisterPage');
   }
-  
+  //method for registering a user
   register(form: NgForm){
     console.log(form.value);
 
