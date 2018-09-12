@@ -16,6 +16,8 @@
       </ion-item>
       <button class="btn" ion-button full round [disabled]="!f.valid">Log in</button>
      
-      <button class="hey" clear ion-button round>FORGOT PASSWORD?</button>
+
     </form>
+
+    <button class="hey" clear ion-button round [disabled]="!f.valid" (click)=" resetPassword()" >FORGOT PASSWORD?</button>
 </ion-content>

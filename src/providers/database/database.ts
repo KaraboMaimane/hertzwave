@@ -42,4 +42,11 @@ export class DatabaseProvider {
     });
   }
 
+  resetPassword(email:string){
+
+    return firebase.auth().sendPasswordResetEmail(email);
+    
+    
+  }
+
 }

@@ -1,6 +1,7 @@
 {
   "name": "hertzwave",
-  "integrations": {},
-  "type": "ionic-angular",
-  "app_id": ""
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
 }

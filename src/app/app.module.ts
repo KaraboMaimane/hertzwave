@@ -11,6 +11,7 @@ import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
 import { DatabaseProvider } from '../providers/database/database';
 import { HttpClientModule } from '../../node_modules/@angular/common/http';
+import { IdentityPage } from '../pages/identity/identity';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { HttpClientModule } from '../../node_modules/@angular/common/http';
     HomePage,
     CategoriesPage,
     LoginPage,
-    RegisterPage
+    RegisterPage,
+    IdentityPage
   ],
   imports: [
     BrowserModule,
@@ -31,7 +33,8 @@ import { HttpClientModule } from '../../node_modules/@angular/common/http';
     HomePage,
     CategoriesPage,
     LoginPage, 
-    RegisterPage
+    RegisterPage,
+    IdentityPage
   ],
   providers: [
     StatusBar,
