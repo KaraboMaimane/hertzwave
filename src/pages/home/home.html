@@ -1,19 +1,30 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      
+
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-    <button class="button" ion-button full round color="light" (click)="Register()" >Register</button>
+  <button class="button" ion-button full round color="light" (click)="Register()">Register</button>
   <button ion-button block (click)="login()">Button</button>
   The world is your oyster.
   <p>
     If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
   </p>
-                
-  <button ion-button (click)="nextPage()">Next Page</button>
-</ion-content>
 
+  <button ion-button (click)="nextPage()">Next Page</button>
+  <audio *ngIf="file !== null" controls autoplay>
+    <source src="{{file}}" type="audio/mpeg">
+  </audio>
+  <input type="file" (change)="upload($event)" accept="audio/mp3, audio/wav, audio/ogg">
+
+  <ion-list *ngFor="let i of test">
+    <audio *ngIf="file !== null" controls autoplay>
+      <source src="{{i}}" type="audio/mpeg">
+    </audio>
+  </ion-list>
+
+
+</ion-content>
