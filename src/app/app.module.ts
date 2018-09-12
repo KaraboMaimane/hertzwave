@@ -12,6 +12,12 @@ import { RegisterPage } from '../pages/register/register';
 import { DatabaseProvider } from '../providers/database/database';
 import { HttpClientModule } from '../../node_modules/@angular/common/http';
 import { IdentityPage } from '../pages/identity/identity';
+import { ProfilePage } from '../pages/profile/profile';
+import { EditPage } from '../pages/edit/edit';
+import { TrackUploadPage } from '../pages/track-upload/track-upload';
+
+
+
 
 @NgModule({
   declarations: [
@@ -20,7 +26,11 @@ import { IdentityPage } from '../pages/identity/identity';
     CategoriesPage,
     LoginPage,
     RegisterPage,
-    IdentityPage
+    IdentityPage,
+    ProfilePage,
+    EditPage,
+    TrackUploadPage
+
   ],
   imports: [
     BrowserModule,
@@ -34,7 +44,10 @@ import { IdentityPage } from '../pages/identity/identity';
     CategoriesPage,
     LoginPage, 
     RegisterPage,
-    IdentityPage
+    IdentityPage,
+    ProfilePage,
+    EditPage,
+    TrackUploadPage
   ],
   providers: [
     StatusBar,

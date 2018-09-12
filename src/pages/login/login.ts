@@ -4,8 +4,7 @@ import { NgForm } from '@angular/forms';
 import { DatabaseProvider } from '../../providers/database/database';
 import firebase from 'firebase';
 import { LoadingController } from 'ionic-angular';
-import { CategoriesPage } from '../categories/categories';
-import { IdentityPage } from '../identity/identity';
+import { ProfilePage } from '../profile/profile';
 /**
 * Generated class for the LoginPage page.
 *
@@ -48,7 +47,7 @@ export class LoginPage {
            text: 'Ok',
            handler: ()=>{
              console.log(data);
-             this.navCtrl.push(IdentityPage);
+             this.navCtrl.push(ProfilePage);
            }
          }
        ]
