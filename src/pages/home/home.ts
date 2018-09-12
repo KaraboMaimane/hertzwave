@@ -12,13 +12,13 @@ import firebase
 })
 export class HomePage implements OnInit {
   file: any;
-  test = [];
+  song = [];
   constructor(public navCtrl: NavController, public db: DatabaseProvider) {
   }
 
   ngOnInit() {
     this.db.retrieveSong('1536752771503DJ_Maphorisa_DJ_Shimza_-_Makhe_ft_MoonChild.mp3').then((data) => {
- this.test.push( data);
+      this.song.push(data);
       console.log(this.file);
     });
   }

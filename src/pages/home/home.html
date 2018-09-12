@@ -15,13 +15,9 @@
   </p>
 
   <button ion-button (click)="nextPage()">Next Page</button>
-  <audio *ngIf="file !== null" controls autoplay>
-    <source src="{{file}}" type="audio/mpeg">
-  </audio>
-  <input type="file" (change)="upload($event)" accept="audio/mp3, audio/wav, audio/ogg">
 
-  <ion-list *ngFor="let i of test">
-    <audio *ngIf="file !== null" controls autoplay>
+  <ion-list *ngFor="let i of song">
+    <audio *ngIf="file !== null" controls>
       <source src="{{i}}" type="audio/mpeg">
     </audio>
   </ion-list>
