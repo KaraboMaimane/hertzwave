@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import firebase from 'firebase';
+import { DatabaseProvider } from '../../providers/database/database';
 /**
  * Generated class for the EditPage page.
  *
@@ -22,7 +23,7 @@ export class EditPage {
   email;
   pic;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public db:DatabaseProvider) {
   }
 
   ionViewDidLoad() {
@@ -171,7 +172,9 @@ export class EditPage {
 
        var userID =firebase.auth().currentUser.uid;
 
-      firebase.database().ref('Registration/'+userID).update(obj);
+       this.db.update(userID,obj);
+
+      //firebase.database().ref('Registration/'+userID).update(obj);
       
       var user = firebase.auth().currentUser;
       user.updateEmail(obj.email).then(()=> {

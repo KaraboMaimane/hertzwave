@@ -13,10 +13,20 @@ import firebase from 'firebase';
 @Injectable()
 export class DatabaseProvider {
 
+ 
+
   constructor(public http: HttpClient) {
     console.log('Hello DatabaseProvider Provider');
   }
 
+
+
+
+  update(userID,obj)
+  {
+    firebase.database().ref('Registration/'+userID).update(obj);
+      
+  }
  
   registerUser(email,password)
   {
@@ -49,4 +59,28 @@ export class DatabaseProvider {
     
   }
 
+  uploadTrack(filename, file) {
+    let timestamp = Number(new Date());
+    console.log(timestamp);
+    //todo
+    return firebase.storage().ref(`/tracks/${timestamp+filename.name}`).put(file);
+  }
+
+  retrieveSong(song){
+    return new Promise ((accpt, rej) =>{
+    
+      let storageRef =  firebase.storage().ref();
+      storageRef.child('/tracks/' + song).getDownloadURL().then(function(url) {
+        accpt(url)
+      })
+
+    })
+
+  }
+
+
+   saveArtists(userID,obj)
+   {
+     return  firebase.database().ref('artists/' +userID).push(obj);
+   }
 }

@@ -17,6 +17,11 @@ import { TrackUploadPage } from '../track-upload/track-upload';
 })
 export class ProfilePage {
 
+  name;
+  email;
+  surname;
+  pic;
+
   constructor(public navCtrl: NavController, public navParams: NavParams,public actionSheetCtrl: ActionSheetController) {
   }
 
@@ -41,13 +46,30 @@ export class ProfilePage {
  
           if(userDetails!=null && userDetails!='')
           {
+            firebase.database().ref('Pic/' + userID).on('value', (data) => {
+              var infor = data.val();
+              this.pic = infor.url;
+              console.log(this.pic);
+      
+            }, (error) => {
+      
+              console.log(error.message);
+      
+      
+            });
+      
+
             let obj = {
               id:userID,
               name: userDetails.name,
-              email:userDetails.email
+              email:userDetails.email,
+              surname:userDetails.surname
             
            
             }
+
+            this.name=obj.name;
+
            
            console.log(obj);
           }

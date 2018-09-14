@@ -5,6 +5,7 @@ import { DatabaseProvider } from '../../providers/database/database';
 import firebase from 'firebase';
 import { LoadingController } from 'ionic-angular';
 import { ProfilePage } from '../profile/profile';
+import { RegisterPage } from '../register/register';
 /**
 * Generated class for the LoginPage page.
 *
@@ -120,4 +121,9 @@ export class LoginPage {
    });
    prompt.present();
  }
+
+ signup(){
+   this.navCtrl.setRoot(RegisterPage);
+ }
+ 
  }

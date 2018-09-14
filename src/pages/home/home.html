@@ -12,7 +12,15 @@
  
 
                                                                                                               
-  <button ion-button full round color="light"(click)="nextPage()">Catergory</button>
+  <button ion-button full round color="light"(click)="nextPage()">Catergory</button><br>
+  <input type="file" (change)="upload($event)" accept="audio/mp3, audio/wav, audio/ogg"><br><br>
+  
+  <ion-list *ngFor="let i of song">
+    <audio *ngIf="file !== null" controls>
+      <source src="{{i}}" type="audio/mpeg">
+    </audio>
+  </ion-list>
+
 
 </ion-content>
 

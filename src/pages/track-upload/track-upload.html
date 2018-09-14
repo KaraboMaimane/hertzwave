@@ -17,21 +17,15 @@
 
       <ion-item class="details">
             <ion-label> <ion-icon name="person"></ion-icon></ion-label>
-            <ion-input placeholder="Artist Name" type="text" value=""></ion-input>
+            <ion-input placeholder="Artist Name" type="text" [(ngModel)]="artistName"></ion-input>
       </ion-item>
-      
         <ion-item class="details">
             <ion-label><ion-icon name="musical-notes"></ion-icon></ion-label>
-            <ion-input placeholder="Album Name" type="text"></ion-input>
-        </ion-item>
+            <ion-input placeholder="Track name" type="text" [(ngModel)]="trackName"></ion-input>
+        </ion-item><br><br>
 
-        <ion-item class="details">
-            <ion-label><ion-icon name="musical-notes"></ion-icon></ion-label>
-            <ion-input placeholder="Track name" type="text"></ion-input>
-        </ion-item>
-
-            <ion-input type="file" accept="audio/mp3" (change) ="onFileSelected($event)"></ion-input>
+          <input type="file" (change)="upload($event)" accept="audio/mp3, audio/wav, audio/ogg"><br><br>
         
-        <button ion-button full round>Submit</button>
+        <button ion-button full round (click)="saveArtist()">Submit</button>
     </div>  
 </ion-content>

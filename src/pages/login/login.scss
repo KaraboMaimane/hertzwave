@@ -1,6 +1,6 @@
 page-login {
 
-  .big_wraper{    
+    .big_wraper{    
         background-color:black;
         color: whitesmoke;
     }
@@ -33,7 +33,13 @@ page-login {
      h1{
          margin-left: 2%;
      }
-     .hey{
+
+     .user_dt{
+        background-color: black;
+    }
+
+    .user_btn1{
         float: right;
+       
     }
 }

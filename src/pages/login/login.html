@@ -18,6 +18,8 @@
      
 
     </form>
-
-    <button class="hey" clear ion-button round [disabled]="!f.valid" (click)=" resetPassword()" >FORGOT PASSWORD?</button>
+    <ion-item no-lines class="user_dt">
+        <button class="user_btn" clear ion-button round (click)="signup()">SIGN UP</button>
+        <button class="user_btn1" clear ion-button round [disabled]="!f.valid" (click)=" resetPassword()">FORGOT PASSWORD?</button>
+    </ion-item>
 </ion-content>
