@@ -21,6 +21,8 @@ export class ProfilePage {
   email;
   surname;
   pic;
+  track;
+  trackArr = new Array();
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public actionSheetCtrl: ActionSheetController) {
   }
@@ -57,15 +59,27 @@ export class ProfilePage {
       
       
             });
+
+            firebase.database().ref('track/' + userID).on('value', (data) => {
+              var infor = data.val();
+
+              let objTrack={
+                // k:infor.key;
+              
+              }
+             this.trackArr.push(objTrack);
+              console.log(infor);
+              console.log(this.trackArr);
       
+            }, (error) => {
+              console.log(error.message);
+            });
 
             let obj = {
               id:userID,
               name: userDetails.name,
               email:userDetails.email,
               surname:userDetails.surname
-            
-           
             }
 
             this.name=obj.name;
@@ -82,31 +96,6 @@ export class ProfilePage {
       }
       else{
         console.log('User has not sign in');
- 
-        // let alert = this.alertCtrl.create({
-        //   title: 'User',
-        //   message: 'Sign in to view your profile ',
-        //   buttons: [
-        //     {
-        //       text: 'Cancel',
-        //       role: 'cancel',
-        //       handler: () => {
-        //         console.log('Cancel clicked');
-        //         this.navCtrl.setRoot(ViewPage);
-        //       }
-        //     },
-        //     {
-        //       text: 'Ok',
-        //       handler: () => {
-        //         console.log('Ok clicked');
-        //         this.navCtrl.setRoot(SigninPage);
- 
-        //       }
-        //     }
-        //   ]
-        // });
-        // alert.present();
-        
       }
     });
   }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import firebase from 'firebase';
 import { DatabaseProvider } from '../../providers/database/database';
 import { ProfilePage } from '../profile/profile';
@@ -26,7 +26,7 @@ export class TrackUploadPage {
   surname;
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public db:DatabaseProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public db:DatabaseProvider,public loadingCtrl: LoadingController) {
   }
 
   ionViewDidLoad() {
@@ -114,12 +114,7 @@ export class TrackUploadPage {
       }, function () {
         // Handle successful uploads on complete
         console.log("successful !!1");
-        const toast = this.toastCtrl.create({
-          message: 'Track uploaded successfully',
-          duration: 5000
-        });
-        toast.present();
-        
+
         uploadTask.snapshot.ref.getDownloadURL().then(function (downloadURL) {
           console.log('File available at', downloadURL);
  
@@ -128,7 +123,7 @@ export class TrackUploadPage {
               console.log('User has sign in');
               var userID = firebase.auth().currentUser.uid;
             
-              firebase.database().ref('artists/' + userID).push({
+              firebase.database().ref('track/' + userID).push({
                 url: downloadURL
               });
  
@@ -157,9 +152,18 @@ export class TrackUploadPage {
 
       var userId = firebase.auth().currentUser.uid;
       this.db.saveArtists(userId,obj).then(()=>{
-
-
-              this.navCtrl.setRoot(ProfilePage);
+        
+        let loading = this.loadingCtrl.create({
+          content: 'Please wait...',
+          duration: 10000
+          
+        });
+      
+        loading.present();
+      
+        setTimeout(() => {
+          this.navCtrl.setRoot(ProfilePage);
+        }, 10000);
       });
       
   }
