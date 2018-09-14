@@ -14,6 +14,7 @@ import { DatabaseProvider } from '../providers/database/database';
 
 
 import { HttpClientModule } from '../../node_modules/@angular/common/http';
+import { SplashPage } from '../pages/splash/splash';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { HttpClientModule } from '../../node_modules/@angular/common/http';
     HomePage,
     CategoriesPage,
     LoginPage,
-    RegisterPage
+    RegisterPage,
+    SplashPage
   ],
   imports: [
     BrowserModule,
@@ -36,7 +38,8 @@ import { HttpClientModule } from '../../node_modules/@angular/common/http';
     HomePage,
     CategoriesPage,
     LoginPage, 
-    RegisterPage
+    RegisterPage,
+    SplashPage
   ],
   providers: [
     StatusBar,

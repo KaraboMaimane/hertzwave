@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import firebase from 'firebase';
-import { login } from '../../app/resources/Login';
 /*
   Generated class for the DatabaseProvider provider.
 
@@ -14,6 +13,8 @@ import { login } from '../../app/resources/Login';
 @Injectable()
 export class DatabaseProvider {
 
+ 
+
   constructor(public http: HttpClient) {
     console.log('Hello DatabaseProvider Provider');
   }
@@ -21,49 +22,26 @@ export class DatabaseProvider {
 
 
 
-  getLoginDetails(email: string, password: string) {
-
-
-    return firebase.auth().signInWithEmailAndPassword(email, password);
-
-
+  update(userID,obj)
+  {
+    firebase.database().ref('Registration/'+userID).update(obj);
+      
+  }
+ 
+  registerUser(email,password)
+  {
+    return firebase.auth().createUserWithEmailAndPassword(email,password); 
+      
   }
 
 
-
-  registerUser(name, surname, email, password, location, phone) {
-
-    firebase.auth().createUserWithEmailAndPassword(email, password).then(() => {
-
-      var userID = firebase.auth().currentUser.uid;
-
-      if (userID != null) {
-        firebase.database().ref('Registration/' + userID).set({
-
-
-          surname: surname,
-          location: location,
-          phone: phone,
-          email: email,
-          password: password
-
-        });
-      }
-
-    });
-  }
-
-  registration(email, password) {
-    return firebase.auth().createUserWithEmailAndPassword(email, password);
-  }
-
-  login(email: string, password: string) {
+  login(email:string, password: string){
     return firebase.auth().signInWithEmailAndPassword(email, password);
   }
 
   getPlace() {
     let url = 'https://maps.googleapis.com/maps/api/place/textsearch/json?query=restaurants+in+Sydney&key=AIzaSyCaiFLiLXtxHiy2O3wp1C3B9QreRdk42cQ';
-
+    
     return new Promise(resolve => {
       this.http.get(url).subscribe(data => {
         resolve(data);
@@ -74,9 +52,11 @@ export class DatabaseProvider {
     });
   }
 
+  resetPassword(email:string){
 
-  forgetPassword() {
-
+    return firebase.auth().sendPasswordResetEmail(email);
+    
+    
   }
 
   uploadTrack(filename, file) {
@@ -90,7 +70,7 @@ export class DatabaseProvider {
     return new Promise ((accpt, rej) =>{
     
       let storageRef =  firebase.storage().ref();
-      storageRef.child('tracks/' + song).getDownloadURL().then(function(url) {
+      storageRef.child('/tracks/' + song).getDownloadURL().then(function(url) {
         accpt(url)
       })
 
@@ -98,4 +78,9 @@ export class DatabaseProvider {
 
   }
 
+
+   saveArtists(userID,obj)
+   {
+     return  firebase.database().ref('artists/' +userID).push(obj);
+   }
 }

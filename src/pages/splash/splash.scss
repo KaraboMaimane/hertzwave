@@ -1,0 +1,27 @@
+page-splash {
+    ion-content{
+        background: url('../../assets/imgs/crowd.jpg');
+        background-size: cover;
+    }
+
+    .contentflex{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        &__content{
+            &--heading{
+                color: white;
+                font-size: 5rem;
+                text-transform: uppercase;
+                font-weight: 300;
+                letter-spacing: .3rem;
+            }
+
+            &--decks{
+                margin: 0 auto;
+                display: block;
+            }
+        }
+    }
+}

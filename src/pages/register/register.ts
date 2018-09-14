@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { DatabaseProvider } from '../../providers/database/database';
 import { NgForm } from '@angular/forms';
 
+
+import firebase from 'firebase';
 /**
  * Generated class for the RegisterPage page.
  *
@@ -23,15 +25,20 @@ export class RegisterPage {
   password;
   email;
   phone;
+ 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public db:DatabaseProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public db:DatabaseProvider,public loadingCtrl: LoadingController) 
+  {
+
   }
 
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegisterPage');
   }
-  
+
+
+  //method for registering a user
   register(form: NgForm){
     console.log(form.value);
 
@@ -42,8 +49,43 @@ export class RegisterPage {
     this.email=form.value.email;
     this.phone=form.value.phone;
 
+    this.db.registerUser(this.email,this.password).then(data =>{
+
+      var userID = firebase.auth().currentUser.uid;
+
+      console.log(userID);
+
+
+      if(userID!=null)
+      {
+
+        firebase.database().ref('Registration/' +userID).set({
+
+          name:this.name,
+          surname:this.surname,
+          location:this.location,
+          phone:this.phone,
+          email:this.email,
+         // role:roles
+          
     
-    this.db.registerUser(this.name,this.surname,this.email,this.password,this.location,this.phone);
+        });
+
+      }
+
+    });
+    //  let  detailobj={
+    //   name: this.name,
+    //   surname:  this.surname,
+    //   location: this.location,
+    //   password:this.password,
+    //   email:this.email,
+    //   phone:this.phone
+    //  }
+  
+    //     this.navCtrl.setRoot(IdentityPage,{obj: detailobj})
+ 
+
     
   }
 }
