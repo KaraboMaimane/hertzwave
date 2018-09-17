@@ -16,10 +16,9 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class SplashPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad SplashPage');
+    let timer = setInterval(()=>{
+      this.navCtrl.setRoot('StartPage');clearInterval(timer)
+    }, 5000);
   }
 
 }

@@ -27,11 +27,11 @@ export class IdentityPage {
   
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public db:DatabaseProvider) {
-   this.details= this.navParams.get("obj");
-   console.log(this.details);
+  //  this.details= this.navParams.get("obj");
+  //  console.log(this.details);
    
-   this.email=this.details.email;
-   this.password=this.details.password;
+  //  this.email=this.details.email;
+  //  this.password=this.details.password;
 
   }
 

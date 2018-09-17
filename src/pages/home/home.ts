@@ -39,4 +39,8 @@ export class HomePage {
   splashPage(){
     this.navCtrl.push(SplashPage);
   }
+
+  homePage(page:string){
+    this.navCtrl.push(page);
+  }
 }

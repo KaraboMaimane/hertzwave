@@ -1,75 +1,109 @@
 page-profile {
-    .profile1{
-        background-color: black;
-        color: white;
- 
-        img{
-            height: 27%;
-            width: 30%;
-        }
- 
-        h2{
-            font-size: 1.5em;
-        }
-    }
- 
-    .big_wrap{
+    ion-content{
+        background: linear-gradient(rgba($color-dark, .9), rgba($color-dark, .8)),url('../../assets/imgs/7.jpg');
         background-size: cover;
-        background-color: black;
-        color: white;
+        color: white !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        animation: 1s ease fadeIn;
     }
- 
-    .wrap{
+
+    .hero{
+        opacity: .98;
+        position: fixed;
+        z-index: 9999;
+        width: 100vw;
+        background: linear-gradient(rgba($color-dark, .6), rgba($color-dark, .6)),url('../../assets/imgs/decks.jpg');
         background-size: cover;
-        background-color: black;
-    }
- 
-    .btn{
-        background-color: black;
-        color: white;
- 
-        .button{
-            background-color: #AB8E21;
+        background-position: bottom !important;
+        &__herobanner{
+            height: 25vh;
+            display: flex;
+            justify-content: space-evenly;
+            flex-flow: row nowrap;
+            &__heroimagecontainer{
+                display: flex;
+                align-items: center;
+                &--image{
+                    width: 10rem;
+                    height: 10rem;
+                    border-radius: 50%;
+                    box-shadow: .2rem .6rem .8rem rgba($color-primary-light, .4);
+                }
+            }
+
+            &__herotagcontainer{
+                display: flex;
+                flex-flow: column nowrap;
+                justify-content: center;
+                &__headingcontainer{
+                    padding-left: 1rem; 
+                    &--heading{
+                        font-weight: 300;
+                        text-transform: uppercase;
+                        letter-spacing: .2rem;
+                    }
+                }
+            }
+
+            &__herobuttoncontainer{
+                display: flex;
+                height: 25vh;
+                flex-direction: column;
+                justify-content: flex-end;
+                position: relative;
+                top: 12.5%;
+                margin-right: 1rem;
+                &--button{
+                    animation: pulseate 1s ease infinite;
+                    font-size: 1.5rem;
+                } 
+            }
         }
     }
- 
-    .track{
-        background-color: black;
-        color: white;
+
+    .item-ios, .item-md{
+        background: transparent;
+        border: none !important;
+        color: $color-primary-light !important;
     }
-       .star{
-           margin-top: -4%;
-       }
- 
-       li{
-            float: left;
-            display: block;
-            padding: 2%;
-            border: 1px solid white;
+
+    ion-list{
+        position: absolute;
+        top: 25vh;
+    }
+
+    .musicplayer{
+        z-index: 9999;
+        position: fixed;
+        bottom: 0vh;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        flex-direction: column;
+        width: 100vw;
+        background: linear-gradient(rgba($color-dark, .5), rgba($color-dark, .5)),url('../../assets/imgs/dj2.jpg');
+        background-size: cover;
+        height:15vh;
+        &__songtitle{
+            height: 4vh;
+            padding: 0;
+            width: 100%;
+            overflow: scroll;
+            &__scrollingtext{
+                margin: 0;
+                font-size: 2.5rem;
+                text-transform: uppercase;
+                text-align: center;
+                color: white;
+                font-weight: 300;
+                margin-bottom: 2rem;
+                animation-direction: reverse;
+                animation: scrollUp 10s ease infinite;
+            }
+            .audioplayer{
+                
+            }
         }
-        audio:hover, audio:focus, audio:active
-        {
-        -webkit-box-shadow: 15px 15px 20px rgba(0,0, 0, 0.4);
-        -moz-box-shadow: 15px 15px 20px rgba(0,0, 0, 0.4);
-        box-shadow: 15px 15px 20px rgba(0,0, 0, 0.4);
-        -webkit-transform: scale(1.05);
-        -moz-transform: scale(1.05);
-        transform: scale(1.05);
-        }
-        
-        
-        audio
-        {
-        -webkit-transition:all 0.5s linear;
-        -moz-transition:all 0.5s linear;
-        -o-transition:all 0.5s linear;
-        transition:all 0.5s linear;
-        -moz-box-shadow: 2px 2px 4px 0px #006773;
-        -webkit-box-shadow:  2px 2px 4px 0px #006773;
-        box-shadow: 2px 2px 4px 0px #006773;
-        -moz-border-radius:7px 7px 7px 7px ;
-        -webkit-border-radius:7px 7px 7px 7px ;
-        border-radius:7px 7px 7px 7px ;
-        }
-        .mejs-time-rail {display:none ;}
+    }
 }
