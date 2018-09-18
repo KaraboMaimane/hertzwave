@@ -22,13 +22,14 @@ page-profile {
             justify-content: space-evenly;
             flex-flow: row nowrap;
             &__heroimagecontainer{
+                margin: .5rem;
+                flex: 0 0 auto;
                 display: flex;
                 align-items: center;
                 &--image{
                     width: 10rem;
                     height: 10rem;
                     border-radius: 50%;
-                    box-shadow: .2rem .6rem .8rem rgba($color-primary-light, .4);
                 }
             }
 
@@ -51,11 +52,9 @@ page-profile {
                 height: 25vh;
                 flex-direction: column;
                 justify-content: flex-end;
-                margin-right: 1rem;
                 &--button{
                     animation: pulseate 1s ease infinite;
                     font-size: 1rem;
-
                 } 
             }
         }
