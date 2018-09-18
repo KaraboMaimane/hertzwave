@@ -1,22 +1,17 @@
-<!--
-  Generated template for the CategoriesPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-<ion-header>
-
-  <ion-navbar color='dark'>
-    <ion-title>Select A Category</ion-title>
-  </ion-navbar>
-
-</ion-header>
 
 
 <ion-content>
-  <div class="buttonblock">
-    <div class="buttonblock__buttoncontainer">
-      <button *ngFor="let category of categoriesArr" class="buttonblock__buttoncontainer__button">{{category}}</button>
+  <div class="navbar">
+    <button ion-button outline class="button">
+      <ion-icon name="search"></ion-icon>
+    </button>
+  </div>
+  <div class="iconblock">
+    <div class="iconblock__iconcontainer" *ngFor="let category of categoriesArr">
+      <div class="iconblock__iconcontainer__icon">
+        <img src="../../assets/imgs/dj.jpg" alt="" class="iconblock__iconcontainer__icon--image">
+        <p class="iconblock__iconcontainer__icon--text">{{category| slice:0:10}}</p>
+      </div>
     </div>
   </div>
 

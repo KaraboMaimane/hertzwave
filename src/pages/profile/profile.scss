@@ -51,12 +51,11 @@ page-profile {
                 height: 25vh;
                 flex-direction: column;
                 justify-content: flex-end;
-                position: relative;
-                top: 12.5%;
                 margin-right: 1rem;
                 &--button{
                     animation: pulseate 1s ease infinite;
-                    font-size: 1.5rem;
+                    font-size: 1rem;
+
                 } 
             }
         }

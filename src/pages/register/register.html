@@ -24,7 +24,7 @@
 
         <ion-item no-lines>
           <ion-label color="light">
-            <ion-icon name="contact"></ion-icon>
+            <ion-icon name="contact-outline"></ion-icon>
           </ion-label>
           <ion-input type="surname" class="contentflex__formcontent--input" placeholder="Surname" name="surname" id="input" ngModel required></ion-input>
         </ion-item>
@@ -40,15 +40,22 @@
           <ion-label color="light">
             <ion-icon name="lock"></ion-icon>
           </ion-label>
-          <ion-input type="password" class="contentflex__formcontent--input" placeholder="Password" name="password" pattern=".{6,10}" id="input" ngModel required></ion-input>
+          <ion-input type="password" class="contentflex__formcontent--input" placeholder="Password" name="password" pattern=".{6,20}" id="input" ngModel required></ion-input>
         </ion-item>
 
         <ion-item no-lines>
+            <ion-label color="light">
+                <ion-icon ios="ios-lock-outline" md="md-lock-outline"></ion-icon>
+            </ion-label>
+            <ion-input type="password" class="contentflex__formcontent--input" placeholder="Confirm Password" name="confirmPassword" pattern=".{6,20}" id="input" ngModel required></ion-input>
+          </ion-item>
+
+        <!-- <ion-item no-lines>
           <ion-label color="light">
             <ion-icon name="call"></ion-icon>
           </ion-label>
           <ion-input type="tel" class="contentflex__formcontent--input" placeholder="Telephone" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" name="phone" id="input" ngModel required></ion-input>
-        </ion-item>
+        </ion-item> -->
       </div>
       <div class="contentflex__buttoncontent">
         <!-- creating the submission button for the form 
