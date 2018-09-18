@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ActionSheetController } from 'ionic-angular';
 import firebase from 'firebase';
-import { EditPage } from '../edit/edit';
-import { TrackUploadPage } from '../track-upload/track-upload';
 /**
  * Generated class for the ProfilePage page.
  *
