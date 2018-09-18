@@ -22,87 +22,141 @@ export class ProfilePage {
   surname;
   pic;
   track;
-  trackArr = new Array();
+  music;
+  trackarray = new Array();
+  playTraack = new Array();
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public actionSheetCtrl: ActionSheetController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public actionSheetCtrl: ActionSheetController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProfilePage');
 
-    firebase.auth().onAuthStateChanged((user)=> {
+    firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         console.log('User has sign in');
-        var id =firebase.auth().currentUser.uid;
+        var id = firebase.auth().currentUser.uid;
         console.log(id);
- 
-        firebase.database().ref('Registration/' +id).on('value', (data: any) => {
- 
+
+        firebase.database().ref('Registration/' + id).on('value', (data: any) => {
+
           var userDetails = data.val();
-     
+
           console.log(userDetails);
-    
-          var userID =firebase.auth().currentUser.uid;
-    
+
+          var userID = firebase.auth().currentUser.uid;
+
           console.log(userID);
- 
-          if(userDetails!=null && userDetails!='')
-          {
+
+          if (userDetails != null && userDetails != '') {
             firebase.database().ref('Pic/' + userID).on('value', (data) => {
+
+
+
               var infor = data.val();
               this.pic = infor.url;
               console.log(this.pic);
-      
+
             }, (error) => {
-      
+
               console.log(error.message);
-      
-      
+
+
             });
 
-            firebase.database().ref('track/' + userID).on('value', (data) => {
-              var infor = data.val();
+            /// retreive a track  
+            let role="user";
+            
+            if(role =="dj"){
+              firebase.database().ref('track/' + userID).on('value', (data) => {
+                var infor = data.val();
+                this.trackarray = [];
+  
+                console.log(infor);
+                var tracks = infor.url;
+  
+                var keys: any = Object.keys(infor);
+  
+                console.log(infor);
+  
+  
+                for (var i = 0; i < keys.length; i++) {
+                  var k = keys[i];
+  
+  
+                  let objtrack = {
+                    url: infor[k].url,
+  
+                    key: k
+  
+                  }
+  
+                  // console.log(infor[k].url);
+  
+                  console.log("track " + i);
+  
+                  this.trackarray.push(objtrack);
+                  console.log(this.trackarray);
+  
+  
+                }
+  
+  
+                console.log("track");
+  
+  
+              }, (error) => {
+  
+                console.log(error.message);
+  
+  
+              });
 
-              let objTrack={
-                // k:infor.key;
-              
-              }
-             this.trackArr.push(objTrack);
-              console.log(infor);
-              console.log(this.trackArr);
-      
-            }, (error) => {
-              console.log(error.message);
-            });
-
-            let obj = {
-              id:userID,
-              name: userDetails.name,
-              email:userDetails.email,
-              surname:userDetails.surname
             }
 
-            this.name=obj.name;
-
-           
-           console.log(obj);
-          }
          
-     
+            let obj = {
+              id: userID,
+              name: userDetails.name,
+              email: userDetails.email,
+              surname: userDetails.surname
+            }
+
+            this.name = obj.name;
+
+
+            console.log(obj);
+          }
+
+
         })
-       
- 
- 
+
+
+
       }
-      else{
+      else {
         console.log('User has not sign in');
       }
     });
   }
 
+  trackIndex(a) {
 
-  edit()
-  {
+    this.music = "";
+    this.playTraack = [];
+    alert(a)
+    this.music = this.trackarray[a].url;
+
+    console.log(this.music);
+
+    this.playTraack.splice(0, 1, this.music);
+
+    console.log(this.playTraack);
+
+
+  }
+
+  edit() {
     const actionSheet = this.actionSheetCtrl.create({
       title: 'Modify your album',
       buttons: [
@@ -113,13 +167,13 @@ export class ProfilePage {
             console.log('Edit Profile clicked');
             this.navCtrl.push(EditPage);
           }
-        },{
+        }, {
           text: 'Upload Track',
           handler: () => {
             console.log('Upload Track clicked');
             this.navCtrl.push(TrackUploadPage);
           }
-        },{
+        }, {
           text: 'Cancel',
           role: 'cancel',
           handler: () => {

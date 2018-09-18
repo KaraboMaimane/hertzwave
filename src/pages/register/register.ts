@@ -25,6 +25,7 @@ export class RegisterPage {
   password;
   email;
   phone;
+  
  
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public db:DatabaseProvider,public loadingCtrl: LoadingController) 
@@ -52,8 +53,13 @@ export class RegisterPage {
     this.db.registerUser(this.email,this.password).then(data =>{
 
       var userID = firebase.auth().currentUser.uid;
+let url ="no image";
+      firebase.database().ref('Pic/' + userID).set({
+        url: url
+      });
 
-      console.log(userID);
+
+      console.log(userID + url);
 
 
       if(userID!=null)
@@ -70,6 +76,11 @@ export class RegisterPage {
           
     
         });
+
+        
+
+
+        
 
       }
 
