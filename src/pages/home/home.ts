@@ -11,9 +11,11 @@ import { SplashPage } from '../splash/splash';
   templateUrl: 'home.html'
 })
 export class HomePage {
+
   file: any;
   test = [];
   song;
+
   constructor(public navCtrl: NavController,public db:DatabaseProvider) {
     console.log(this.db.getPlace());
 

@@ -1,3 +1,4 @@
+
 import { Component } from "@angular/core";
 import { IonicPage, NavController, NavParams } from "ionic-angular";
 import firebase from "firebase";
@@ -15,6 +16,7 @@ export class EditPage {
   surname;
   email;
   pic;
+
   profileObj = {};
   constructor(
     public navCtrl: NavController,
