@@ -27,6 +27,7 @@ export class EditPage {
   stagename;
   selectedfile;
   filename;
+  genre;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public db:DatabaseProvider,public loadingCtrl: LoadingController) {
 
