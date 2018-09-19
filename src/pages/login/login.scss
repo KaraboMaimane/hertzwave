@@ -52,12 +52,13 @@ page-login {
         }
 
         &__formcontent{
-            width: 80%;
+            width: 100%;
         }
 
         &__buttoncontent{
             margin-top: 1rem;
             width: 100%;
+            text-align: center;
             &--button{
                 background: linear-gradient(rgba($color-primary-dark, .5), rgba($color-primary-light, .8));
                 border-radius: 10rem;
@@ -70,6 +71,19 @@ page-login {
                 &[disabled]{
                     animation: none;
                 }
+            }
+            &--button1{
+                background: linear-gradient(rgba($color-primary-dark, .5), rgba($color-primary-light, .8));
+                border-radius: 10rem;
+                -webkit-background-clip: text;
+                display: inline-block;
+                color: transparent;
+            }
+            &--button2{
+                background: linear-gradient(rgba($color-primary-dark, .5), rgba($color-primary-light, .8));
+                -webkit-background-clip: text;
+                display: inline-block;
+                color: transparent;
             }
         }
     }
