@@ -1,3 +1,4 @@
+
 import { Component } from "@angular/core";
 import {
   IonicPage,
@@ -23,6 +24,7 @@ export class RegisterPage {
     public loadingCtrl: LoadingController,
     public alertCtrl: AlertController
   ) {}
+
 
   register(form: NgForm) {
     const loading = this.loadingCtrl.create({

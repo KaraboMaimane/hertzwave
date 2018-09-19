@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ActionSheetController } from 'ionic-angular';
 import firebase from 'firebase';
+
 /**
  * Generated class for the ProfilePage page.
  *
@@ -20,6 +21,7 @@ export class ProfilePage {
   surname;
   pic;
   track;
+
   trackarray =[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public actionSheetCtrl: ActionSheetController) {
@@ -160,6 +162,7 @@ export class ProfilePage {
 
   edit()
   {
+
     const actionSheet = this.actionSheetCtrl.create({
       title: 'Modify your album',
       buttons: [
@@ -168,6 +171,7 @@ export class ProfilePage {
           role: 'Edit Profile',
           handler: () => {
             console.log('Edit Profile clicked');
+
             this.navCtrl.push('EditPage');
           }
         },{
@@ -177,6 +181,7 @@ export class ProfilePage {
             this.navCtrl.push('TrackUploadPage');
           }
         },{
+          
           text: 'Cancel',
           role: 'cancel',
           handler: () => {
