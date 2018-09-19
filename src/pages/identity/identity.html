@@ -1,20 +1,24 @@
-<!--
-  Generated template for the IdentityPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-<ion-header>
-
-  <ion-navbar>
-    <ion-title>identity</ion-title>
-  </ion-navbar>
-
-</ion-header>
-
-
 <ion-content padding>
-    <button ion-button color="dark" clear  (click)="userRole(1)">User</button>
+  <div class="headerflex">
+    <h3 class="headerflex--heading"> What role are you?</h3>
+    <h3 class="headerflex--heading" *ngIf="role"> {{role}}</h3>
 
-    <button ion-button color="dark" clear  (click)="userRole(2)">DJ</button>
+  </div>
+
+  <div class="contentflex">
+    <div class="contentflex__cardcontainer" (click)="checkRole('Dj')">
+      <div class="contentflex__cardcontainer__headingcontainer h1">
+        <h1 class="contentflex__cardcontainer__headingcontainer--heading">Dj</h1>
+        <img class="contentflex__cardcontainer__headingcontainer--image" src="../../assets/imgs/dj.svg" width="25%">
+      </div>
+    </div>
+
+    <div class="contentflex__cardcontainer" (click)="checkRole('Audience')">
+      <div class="contentflex__cardcontainer__headingcontainer h1">
+        <h1 class="contentflex__cardcontainer__headingcontainer--heading">Audience</h1>
+        <img class="contentflex__cardcontainer__headingcontainer--image" src="../../assets/imgs/group (1).svg" width="25%">
+      </div>
+    </div>
+  </div>
+  <button ion-button block class="button" [disabled]="!role" (click)="nextPage()">Proceed</button>
 </ion-content>

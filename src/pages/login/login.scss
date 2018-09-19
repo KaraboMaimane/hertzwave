@@ -45,7 +45,7 @@ page-login {
               &--headingtext{
                 text-transform: uppercase;
                 
-                font-size: 6rem;
+                font-size: 5rem;
                 font-weight: 300;
               }
             }
@@ -56,9 +56,7 @@ page-login {
         }
 
         &__buttoncontent{
-            margin-top: 1rem;
             width: 100%;
-            text-align: center;
             &--button{
                 background: linear-gradient(rgba($color-primary-dark, .5), rgba($color-primary-light, .8));
                 border-radius: 10rem;
@@ -72,6 +70,7 @@ page-login {
                     animation: none;
                 }
             }
+
             &--button1{
                 background: linear-gradient(rgba($color-primary-dark, .5), rgba($color-primary-light, .8));
                 border-radius: 10rem;
@@ -85,10 +84,14 @@ page-login {
                 display: inline-block;
                 color: transparent;
             }
+            
         }
     }
 
     .item-input-has-focus{
         animation: pulseate 1s ease infinite, .3s ease grow;
     }
+
 }
+
+

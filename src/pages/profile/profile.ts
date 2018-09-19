@@ -178,7 +178,7 @@ export class ProfilePage {
           text: 'Upload Track',
           handler: () => {
             console.log('Upload Track clicked');
-            this.navCtrl.push('TrackUploadPage');
+            this.navCtrl.push('UploadPage');
           }
         },{
           

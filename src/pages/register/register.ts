@@ -1,5 +1,5 @@
 
-import { Component } from "@angular/core";
+import { Component, OnInit} from "@angular/core";
 import {
   IonicPage,
   NavController,
@@ -16,7 +16,8 @@ import firebase from "firebase";
   selector: "page-register",
   templateUrl: "register.html"
 })
-export class RegisterPage {
+export class RegisterPage implements OnInit{
+  role: any;
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -25,6 +26,14 @@ export class RegisterPage {
     public alertCtrl: AlertController
   ) {}
 
+  ngOnInit(){
+    if(this.navParams.get('role')){
+      this.role = this.navParams.get('role');
+      console.log(this.role);
+    }else{
+      console.log('nothing here')
+    }
+  }
 
   register(form: NgForm) {
     const loading = this.loadingCtrl.create({

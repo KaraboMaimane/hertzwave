@@ -1,10 +1,12 @@
-
-
 <ion-content>
   <div class="navbar">
-    <button ion-button outline class="button">
-      <ion-icon name="search"></ion-icon>
-    </button>
+    <ion-item no-lines class="navbarinput">
+      <ion-label color="light">
+        <ion-icon name="mail"></ion-icon>
+      </ion-label>
+      <ion-input type="text" class="navbar--input" placeholder="Email Address" name="email" id="input" ngModel
+        required></ion-input>
+    </ion-item>
   </div>
   <div class="iconblock">
     <div class="iconblock__iconcontainer" *ngFor="let category of categoriesArr">
@@ -14,6 +16,14 @@
       </div>
     </div>
   </div>
+
+  <ion-fab right top>
+    <button ion-fab color="light"><img src="../../assets/imgs/sound-wavesdard.png" alt=""></button>
+    <ion-fab-list side="left">
+      <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>
+      <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>
+    </ion-fab-list>
+  </ion-fab>
 
   <div class="list">
     <ion-list>

@@ -53,4 +53,34 @@ page-categories {
         height: 95vh;
     }
     
+    .fab-md-light{
+        height: 5rem;
+        width: 5rem;
+    }
+
+    .navbar{
+        height: 8vh;
+        display: flex;
+        align-items: center;
+        button{
+            border: none;
+            font-size: 3rem;
+            margin-left: 1rem;
+        }
+        
+        .input-wrapper{
+            background: rgba($color-grey-light, .1);
+            border-radius: 10rem;
+            color: $color-grey-light;
+            font-size: 1.5rem;
+            padding-left: 2.5rem;
+            ion-input{
+                font-size: 2rem;
+            }
+        }
+    }
+
+    .item-input-has-focus{
+        animation: pulseate 1s ease infinite, .3s ease grow;
+    }
 }

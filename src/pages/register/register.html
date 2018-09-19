@@ -18,35 +18,23 @@
           name="name" will give our input a variable of "name"
           required validates that the input is not empty
           ngModel assigns the name to variable-->
-          <ion-input type="name" name="name" placeholder="Name" class="contentflex__formcontent--input" id="input" ngModel required></ion-input>
-        </ion-item>
-
-        <ion-item no-lines>
-          <ion-label color="light">
-            <ion-icon name="contact"></ion-icon>
-          </ion-label>
-          <ion-input type="surname" class="contentflex__formcontent--input" placeholder="Surname" name="surname" id="input" ngModel required></ion-input>
+          <ion-input type="name" name="name" placeholder="Full names" class="contentflex__formcontent--input" id="input" ngModel required></ion-input>
         </ion-item>
 
         <ion-item no-lines>
           <ion-label color="light">
             <ion-icon name="mail"></ion-icon>
           </ion-label>
-          <ion-input type="email" class="contentflex__formcontent--input" placeholder="Email Address" name="email" id="input" ngModel required></ion-input>
+          <ion-input type="email" class="contentflex__formcontent--input" placeholder="Email Address" name="email" id="input" ngModel
+            required></ion-input>
         </ion-item>
 
         <ion-item no-lines>
           <ion-label color="light">
             <ion-icon name="lock"></ion-icon>
           </ion-label>
-          <ion-input type="password" class="contentflex__formcontent--input" placeholder="Password" name="password" pattern=".{6,10}" id="input" ngModel required></ion-input>
-        </ion-item>
-
-        <ion-item no-lines>
-          <ion-label color="light">
-            <ion-icon name="lock"></ion-icon>
-          </ion-label>
-          <ion-input type="tel" class="contentflex__formcontent--input" placeholder="Confirm Password" pattern=".{6.10}" name="Password" id="input" ngModel required></ion-input>
+          <ion-input type="password" class="contentflex__formcontent--input" placeholder="Password" name="password" pattern=".{6,30}"
+            id="input" ngModel required></ion-input>
         </ion-item>
       </div>
       <div class="contentflex__buttoncontent">

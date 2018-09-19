@@ -1,16 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-import { DatabaseProvider } from '../../providers/database/database';
-
-import firebase from 'firebase';
-import { CategoriesPage } from '../categories/categories';
-/**
- * Generated class for the IdentityPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -18,102 +7,23 @@ import { CategoriesPage } from '../categories/categories';
   templateUrl: 'identity.html',
 })
 export class IdentityPage {
+  role: string;
 
-  details;
-
-  email;
-  password;
-
-  
-
-  constructor(public navCtrl: NavController, public navParams: NavParams,public db:DatabaseProvider) {
-
-  //  this.details= this.navParams.get("obj");
-  //  console.log(this.details);
-   
-  //  this.email=this.details.email;
-  //  this.password=this.details.password;
-
+  constructor(private navCtrl: NavController, private alertCtrl: AlertController) {
 
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad IdentityPage');
+  checkRole(role: string) {
+    this.role = role;
   }
 
-  userRole(role)
-  {
-    var roles;
+  nextPage() {
 
-    console.log(role)
-
-    if(role==1)
-    {
-  
-      roles="user";
-      console.log(roles);
-    }
-    else if(role==2)
-    {
-      roles="dj";
-      console.log(roles);
+    if (this.role == 'Dj') {
+      this.navCtrl.setRoot('RegisterPage', { role: this.role });
+    } else if (this.role == 'Audience') {
+      this.navCtrl.setRoot('RegisterPage', { role: this.role });
     }
 
-    console.log(this.email);
-    console.log(this.password);
-      
-    this.db.registerUser(this.email,this.password).then(data =>{
-
-      var userID = firebase.auth().currentUser.uid;
-
-      console.log(userID);
-
-
-      if(userID!=null)
-      {
-
-        firebase.database().ref('Registration/' +userID).set({
-
-          name:this.details.name,
-          surname:this.details.surname,
-          location:this.details.location,
-          phone:this.details.phone,
-          email:this.details.email,
-          role:roles
-          
-    
-        });
-
-
-        
-      
-        if(role==1)
-        {
-      
-          roles="user";
-          console.log(roles);
-
-         
-         this.navCtrl.setRoot(CategoriesPage);
-
-        }
-        else if(role==2)
-        {
-          roles="dj";
-          console.log(roles);
-
-     alert("Dj Profile")
-       //this.navCtrl.setRoot(CategoriesPage,{obj: roles});
-
-        }
-
-      }
-
-
-    });
-    ;
-
-    
   }
-
 }
