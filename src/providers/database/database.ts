@@ -13,38 +13,27 @@ import firebase from 'firebase';
 @Injectable()
 export class DatabaseProvider {
 
+ 
+
   constructor(public http: HttpClient) {
     console.log('Hello DatabaseProvider Provider');
   }
 
- 
-  registerUser(name,surname,email,password,location,phone)
+
+
+
+  update(userID,obj)
   {
-
-        firebase.auth().createUserWithEmailAndPassword(email, password).then(()=>{
-            
-          var userID = firebase.auth().currentUser.uid;
-
-          if(userID!=null)
-          {
-            firebase.database().ref('Registration/' +userID).set({
-    
-              name:name,
-              surname:surname,
-              location:location,
-              phone:phone,
-              email:email,
-              password:password
-        
-            });
-          }
-
-        });
+    firebase.database().ref('Registration/'+userID).update(obj);
+      
+  }
+ 
+  registerUser(email,password)
+  {
+    return firebase.auth().createUserWithEmailAndPassword(email,password); 
+      
   }
 
-  registration(email, password){
-    return firebase.auth().createUserWithEmailAndPassword(email, password);
-  }
 
   login(email:string, password: string){
     return firebase.auth().signInWithEmailAndPassword(email, password);
@@ -63,4 +52,35 @@ export class DatabaseProvider {
     });
   }
 
+  resetPassword(email:string){
+
+    return firebase.auth().sendPasswordResetEmail(email);
+    
+    
+  }
+
+  uploadTrack(filename, file) {
+    let timestamp = Number(new Date());
+    console.log(timestamp);
+    //todo
+    return firebase.storage().ref(`/tracks/${timestamp+filename.name}`).put(file);
+  }
+
+  retrieveSong(song){
+    return new Promise ((accpt, rej) =>{
+    
+      let storageRef =  firebase.storage().ref();
+      storageRef.child('/tracks/' + song).getDownloadURL().then(function(url) {
+        accpt(url)
+      })
+
+    })
+
+  }
+
+
+   saveArtists(userID,obj)
+   {
+     return  firebase.database().ref('artists/' +userID).push(obj);
+   }
 }

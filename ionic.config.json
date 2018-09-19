@@ -1,5 +1,13 @@
 {
   "name": "hertzwave",
+
   "integrations": {},
   "type": "ionic-angular"
 }
+
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
+
